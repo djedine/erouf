@@ -13,13 +13,13 @@
       
       <!-- Title -->
       <h1 class="font-display text-5xl md:text-7xl text-white mb-4 animate-fade-in">
-        Hey there
+        Hey SOUMA
         <span class="text-gradient">!</span>
       </h1>
       
       <!-- Subtitle -->
       <p class="text-xl md:text-2xl text-gray-400 mb-12 animate-slide-up">
-        I made something for you. It'll only take a minute.
+        Let's play a game .... It'll only take a minute.
       </p>
       
       <!-- Start Button -->

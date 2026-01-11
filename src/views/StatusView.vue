@@ -13,7 +13,6 @@
       
       <!-- Question -->
       <h2 class="font-display text-3xl md:text-4xl text-white mb-3">
-        SOUMA<br>
         Quick question
       </h2>
       
