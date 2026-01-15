@@ -40,10 +40,10 @@
       <!-- Personal Message -->
       <div class="glass-light rounded-2xl p-6 mb-8">
         <p class="text-gray-300 text-lg leading-relaxed">
-          Siri 9owdi
+          Well done
         </p>
         <p class="text-indigo-400 mt-4 font-medium">
-          You thought we would talk ever!
+          Talk to you soon!
         </p>
       </div>
       
