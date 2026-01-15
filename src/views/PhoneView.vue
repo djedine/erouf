@@ -25,16 +25,16 @@
         <div class="flex items-center justify-center gap-2 glass-light rounded-2xl p-3">
           <!-- Country Code -->
           <div class="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-3">
-            <span class="text-xl">🇩🇿</span>
-            <span class="text-white font-semibold">+213</span>
+            <span class="text-xl">🇨🇦</span>
+            <span class="text-white font-semibold">+1</span>
           </div>
           
           <!-- Phone Number Input -->
           <input
             v-model="phoneNumber"
             type="tel"
-            placeholder="XX XXX XX XX"
-            maxlength="12"
+            placeholder="(514) 555-1234"
+            maxlength="14"
             @input="formatPhone"
             class="flex-1 bg-white/10 border-none rounded-xl px-4 py-3 text-white text-lg font-mono placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
@@ -43,6 +43,11 @@
         <!-- Validation Message -->
         <p v-if="phoneError" class="text-red-400 mt-3 text-sm">
           {{ phoneError }}
+        </p>
+        
+        <!-- Helper text -->
+        <p class="text-gray-500 mt-2 text-xs">
+          Area code + 7 digits
         </p>
       </div>
       
@@ -96,30 +101,48 @@ const loading = ref(false)
 const phoneNumber = ref('')
 const phoneError = ref('')
 
+// Canadian phone format: (XXX) XXX-XXXX
+// Total: 10 digits (3 area code + 7 number)
 const formatPhone = () => {
+  // Remove non-digits
   let cleaned = phoneNumber.value.replace(/\D/g, '')
-  cleaned = cleaned.substring(0, 9)
   
+  // Limit to 10 digits
+  cleaned = cleaned.substring(0, 10)
+  
+  // Format: (XXX) XXX-XXXX
   let formatted = ''
-  if (cleaned.length > 0) formatted += cleaned.substring(0, 2)
-  if (cleaned.length > 2) formatted += ' ' + cleaned.substring(2, 5)
-  if (cleaned.length > 5) formatted += ' ' + cleaned.substring(5, 7)
-  if (cleaned.length > 7) formatted += ' ' + cleaned.substring(7, 9)
+  
+  if (cleaned.length > 0) {
+    formatted += '('
+  }
+  if (cleaned.length > 0) {
+    formatted += cleaned.substring(0, 3)
+  }
+  if (cleaned.length >= 3) {
+    formatted += ') '
+  }
+  if (cleaned.length > 3) {
+    formatted += cleaned.substring(3, 6)
+  }
+  if (cleaned.length > 6) {
+    formatted += '-' + cleaned.substring(6, 10)
+  }
   
   phoneNumber.value = formatted
   
-  if (cleaned.length > 0 && cleaned.length < 9) {
-    phoneError.value = 'Please enter a complete number'
-  } else if (cleaned.length === 9 && !['05', '06', '07'].includes(cleaned.substring(0, 2))) {
-    phoneError.value = 'Must start with 05, 06, or 07'
+  // Validate
+  if (cleaned.length > 0 && cleaned.length < 10) {
+    phoneError.value = 'Please enter all 10 digits'
   } else {
     phoneError.value = ''
   }
 }
 
+// Valid when 10 digits entered
 const isValidPhone = computed(() => {
   const cleaned = phoneNumber.value.replace(/\D/g, '')
-  return cleaned.length === 9 && ['05', '06', '07'].includes(cleaned.substring(0, 2))
+  return cleaned.length === 10
 })
 
 const submitPhone = async () => {
@@ -127,7 +150,8 @@ const submitPhone = async () => {
   
   loading.value = true
   
-  const fullNumber = '+213 ' + phoneNumber.value
+  // Format: +1 (XXX) XXX-XXXX
+  const fullNumber = '+1 ' + phoneNumber.value
   
   try {
     await emailjs.send(

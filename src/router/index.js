@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import WelcomeView from '../views/WelcomeView.vue'
 import StatusView from '../views/StatusView.vue'
 import TakenView from '../views/TakenView.vue'
@@ -8,7 +8,7 @@ import PhoneView from '../views/PhoneView.vue'
 import FinalView from '../views/FinalView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),  // ← Changed this
   routes: [
     {
       path: '/',

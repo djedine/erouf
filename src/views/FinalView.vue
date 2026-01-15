@@ -40,11 +40,10 @@
       <!-- Personal Message -->
       <div class="glass-light rounded-2xl p-6 mb-8">
         <p class="text-gray-300 text-lg leading-relaxed">
-          I hope this made you smile. It took me a while to put together, 
-          so I hope it was worth your time.
+          Siri 9owdi
         </p>
         <p class="text-indigo-400 mt-4 font-medium">
-          Maybe we can talk soon?
+          You thought we would talk ever!
         </p>
       </div>
       

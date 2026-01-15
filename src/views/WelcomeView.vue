@@ -13,13 +13,12 @@
       
       <!-- Title -->
       <h1 class="font-display text-5xl md:text-7xl text-white mb-4 animate-fade-in">
-        Hey SOUMA
-        <span class="text-gradient">!</span>
+        Hey Lily<span class="text-gradient">!</span>
       </h1>
       
       <!-- Subtitle -->
       <p class="text-xl md:text-2xl text-gray-400 mb-12 animate-slide-up">
-        Let's play a game .... It'll only take a minute.
+  It'll only take a minute.
       </p>
       
       <!-- Start Button -->
@@ -35,10 +34,6 @@
         </span>
       </button>
       
-      <!-- Subtle hint -->
-      <p class="mt-12 text-gray-600 text-sm animate-fade-in" style="animation-delay: 0.5s;">
-        Trust me, it's worth it ✨
-      </p>
     </div>
   </div>
 </template>
