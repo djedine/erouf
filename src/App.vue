@@ -107,7 +107,7 @@
             class="text-7xl md:text-9xl lg:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-fast"
             style="filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.7));"
           >
-            T9OWD
+            T9OWD!
           </h1>
         </div>
 
