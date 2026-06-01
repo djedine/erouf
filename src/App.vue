@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-black relative overflow-hidden flex items-center justify-center">
+  <div class="min-h-screen bg-black relative overflow-hidden flex items-center justify-center p-4">
     <!-- Animated Background -->
     <div class="absolute inset-0">
       <!-- Gradient Orbs -->
@@ -30,27 +30,47 @@
     </div>
 
     <!-- Main Content -->
-    <div class="relative z-10 text-center px-4">
-      <!-- Stage 1: Initial Reveal -->
-      <div v-if="stage === 1" class="animate-fade-in">
-        <div class="mb-8">
-          <span class="text-6xl animate-bounce-in">👀</span>
-        </div>
+    <div class="relative z-10 text-center w-full max-w-7xl mx-auto">
+      <!-- Stage 1: Initial Reveal with Photo -->
+      <div v-if="stage === 1" class="animate-fade-in flex flex-col items-center">
+        <!-- New Content: Operation Title and Profile Card -->
         <h1 
-          class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-wider"
+          class="text-4xl md:text-6xl font-black text-white mb-4 tracking-wider"
           style="text-shadow: 0 0 40px rgba(168, 85, 247, 0.5);"
         >
-          Ready?
+          OPERATION: MARRY BOUALLAM
         </h1>
-        <button 
-          @click="nextStage"
-          class="px-12 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xl font-bold rounded-full transform hover:scale-110 transition-all duration-300 hover:shadow-[0_0_50px_rgba(168,85,247,0.5)] animate-pulse-glow"
-        >
-          Show Me
-        </button>
+        <p class="text-xl md:text-2xl text-gray-400 mb-12">Find His Match</p>
+        
+        <!-- Profile Card -->
+        <div class="relative w-full max-w-4xl mx-auto mb-12 flex flex-col md:flex-row items-center gap-10 bg-gray-900/50 p-10 rounded-3xl border border-purple-500/30 backdrop-blur-sm">
+          <!-- The Photo Container - Full Width, Standardized Aspect Ratio, Glowing Border -->
+          <div class="relative w-full md:w-3/5 lg:w-3/5">
+            <!-- Neon Border Wrapper -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+            <div class="relative aspect-[4/3] bg-black rounded-xl overflow-hidden border border-gray-800">
+              <img 
+                src="@/assets/images/bouallam.jpg" 
+                alt="Portrait of Bouallam" 
+                class="absolute inset-0 w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+          
+          <!-- Call-to-Action Content -->
+          <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start w-full">
+            <h3 class="text-3xl font-bold text-white mb-6">Subject: Bouallam</h3>
+            <button 
+              @click="nextStage"
+              class="px-10 py-4 w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xl font-bold rounded-full transform hover:scale-110 transition-all duration-300 hover:shadow-[0_0_50px_rgba(168,85,247,0.5)] animate-pulse-glow"
+            >
+              Find His Match 💍
+            </button>
+          </div>
+        </div>
       </div>
 
-      <!-- Stage 2: Ha Howa -->
+      <!-- Stage 2: Scanning -->
       <div v-else-if="stage === 2" class="animate-zoom-in">
         <div class="relative">
           <!-- Glowing Ring -->
@@ -63,15 +83,15 @@
             class="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 animate-gradient-text py-4"
             style="filter: drop-shadow(0 0 30px rgba(236, 72, 153, 0.5));"
           >
-            HA HOWA
+            SCANNING...
           </h1>
         </div>
         
         <p class="text-2xl md:text-3xl text-gray-400 mt-8 animate-fade-in-delay">
-          Wait for it...
+          Calculating Rizz Compatibility...
         </p>
         
-        <!-- Auto advance after 2 seconds -->
+        <!-- Auto advance after 2.5 seconds -->
         <div class="mt-12">
           <div class="w-48 h-1 bg-gray-800 rounded-full mx-auto overflow-hidden">
             <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 animate-loading-bar" />
@@ -79,8 +99,8 @@
         </div>
       </div>
 
-      <!-- Stage 3: Siri 9owdi - The Reveal -->
-      <div v-else-if="stage === 3" class="animate-explode-in">
+      <!-- Stage 3: The Reveal -->
+      <div v-else-if="stage === 3" class="animate-explode-in flex flex-col items-center">
         <!-- Explosion Effect -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div 
@@ -101,28 +121,28 @@
             class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-4 animate-shake"
             style="text-shadow: 0 0 60px rgba(236, 72, 153, 0.8), 0 0 120px rgba(168, 85, 247, 0.6);"
           >
-            SIR
+            MATCH
           </h1>
           <h1 
-            class="text-7xl md:text-9xl lg:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-fast"
+            class="text-7xl md:text-9xl lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-fast"
             style="filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.7));"
           >
-            T9OWD!
+            FOUND! 👰‍♀️
           </h1>
         </div>
 
         <!-- Emojis Rain -->
         <div class="mt-12 flex justify-center gap-4 text-5xl">
-          <span class="animate-bounce" style="animation-delay: 0s">😂</span>
-          <span class="animate-bounce" style="animation-delay: 0.1s">🤣</span>
-          <span class="animate-bounce" style="animation-delay: 0.2s">💀</span>
-          <span class="animate-bounce" style="animation-delay: 0.3s">😭</span>
-          <span class="animate-bounce" style="animation-delay: 0.4s">🔥</span>
+          <span class="animate-bounce" style="animation-delay: 0s">🎉</span>
+          <span class="animate-bounce" style="animation-delay: 0.1s">💐</span>
+          <span class="animate-bounce" style="animation-delay: 0.2s">💒</span>
+          <span class="animate-bounce" style="animation-delay: 0.3s">🎊</span>
+          <span class="animate-bounce" style="animation-delay: 0.4s">❤️</span>
         </div>
 
         <!-- Subliminal Message -->
-        <p class="text-xl text-gray-500 mt-12 animate-fade-in-delay">
-          You really thought... 💀
+        <p class="text-xl text-gray-300 mt-12 animate-fade-in-delay">
+          Sorry, ladies! Bouallam is off the market! 👑
         </p>
 
         <!-- Restart -->
@@ -130,7 +150,7 @@
           @click="restart"
           class="mt-12 px-8 py-3 border border-gray-700 text-gray-500 rounded-full hover:border-purple-500 hover:text-purple-400 transition-all duration-300 text-sm"
         >
-          🔄 Again?
+          🔄 Scan Again
         </button>
       </div>
     </div>
@@ -142,7 +162,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 
 const stage = ref(1)
 
@@ -230,12 +250,6 @@ watch(stage, (newStage) => {
   }
 }
 
-@keyframes bounce-in {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}
-
 @keyframes zoom-in {
   0% { transform: scale(0.5); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
@@ -283,7 +297,6 @@ watch(stage, (newStage) => {
 }
 .animate-loading-bar { animation: loading-bar 2.5s ease-out forwards; }
 .animate-shake { animation: shake 0.5s ease-in-out; }
-.animate-bounce-in { animation: bounce-in 0.6s ease-out; }
 .animate-zoom-in { animation: zoom-in 0.5s ease-out; }
 .animate-explode-in { animation: explode-in 0.6s ease-out; }
 .animate-fade-in { animation: fadeIn 0.5s ease-out; }
