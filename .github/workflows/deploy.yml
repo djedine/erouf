@@ -1,0 +1,35 @@
+name: Build and Deploy to GH Pages
+
+on:
+  push:
+    branches:
+      - main # Triggers every time you push to main
+  workflow_dispatch: # Allows you to trigger it manually via the GUI button
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Uses Node 20 to compile your Vue app safely
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production files
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # The folder your Vue build generates
+          branch: gh-pages # The branch it deploys to
