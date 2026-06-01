@@ -101,13 +101,13 @@
             class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-4 animate-shake"
             style="text-shadow: 0 0 60px rgba(236, 72, 153, 0.8), 0 0 120px rgba(168, 85, 247, 0.6);"
           >
-            SIRI
+            SIR
           </h1>
           <h1 
             class="text-7xl md:text-9xl lg:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-fast"
             style="filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.7));"
           >
-            9OWDI
+            T9OWD
           </h1>
         </div>
 
